@@ -17,12 +17,13 @@ function HomePage() {
       color: 'white',
       maxWidth: '600px',
       width: '100%',
-      animation: 'fadeInUp 0.8s ease-out'
+      animation: 'fadeInUp 0.8s ease-out',
+      padding: '20px 0'
     }}>
       {/* Construction Icon */}
       <div style={{
-        fontSize: '80px',
-        marginBottom: '30px',
+        fontSize: 'clamp(50px, 10vw, 80px)',
+        marginBottom: 'clamp(15px, 4vw, 30px)',
         animation: 'bounce 2s infinite'
       }}>
         🚧
@@ -30,8 +31,8 @@ function HomePage() {
       
       {/* Main Heading */}
       <h1 style={{
-        fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-        marginBottom: '20px',
+        fontSize: 'clamp(1.5rem, 5vw, 3.5rem)',
+        marginBottom: 'clamp(10px, 3vw, 20px)',
         fontWeight: '700',
         textShadow: '0 2px 10px rgba(0,0,0,0.2)',
         letterSpacing: '-1px'
@@ -41,8 +42,8 @@ function HomePage() {
       
       {/* Animated Loading Text */}
       <div style={{
-        fontSize: '1.2rem',
-        marginBottom: '30px',
+        fontSize: 'clamp(0.9rem, 2.5vw, 1.2rem)',
+        marginBottom: 'clamp(15px, 3vw, 30px)',
         opacity: '0.9',
         minHeight: '30px'
       }}>
@@ -56,7 +57,7 @@ function HomePage() {
         backgroundColor: 'rgba(255,255,255,0.2)',
         borderRadius: '4px',
         overflow: 'hidden',
-        marginBottom: '40px'
+        marginBottom: 'clamp(20px, 4vw, 40px)'
       }}>
         <div style={{
           height: '100%',
@@ -69,9 +70,9 @@ function HomePage() {
       
       {/* Description */}
       <p style={{
-        fontSize: '1.1rem',
+        fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
         lineHeight: '1.6',
-        marginBottom: '40px',
+        marginBottom: 'clamp(20px, 4vw, 40px)',
         opacity: '0.95'
       }}>
         We're working hard to bring you something special. 
@@ -80,29 +81,29 @@ function HomePage() {
 
       {/* CTA Section for Checklist */}
       <div style={{
-        marginBottom: '40px',
-        padding: '30px',
+        marginBottom: 'clamp(20px, 4vw, 40px)',
+        padding: 'clamp(20px, 4vw, 30px)',
         backgroundColor: 'rgba(255,255,255,0.08)',
         borderRadius: '16px',
         border: '1px solid rgba(255,255,255,0.15)',
         backdropFilter: 'blur(10px)'
       }}>
         <div style={{
-          fontSize: '42px',
-          marginBottom: '15px'
+          fontSize: 'clamp(32px, 6vw, 42px)',
+          marginBottom: 'clamp(10px, 2vw, 15px)'
         }}>
           ✅
         </div>
         <h2 style={{
-          fontSize: '1.8rem',
-          marginBottom: '15px',
+          fontSize: 'clamp(1.2rem, 4vw, 1.8rem)',
+          marginBottom: 'clamp(10px, 2vw, 15px)',
           fontWeight: '600'
         }}>
           Revenue Operations Checklist
         </h2>
         <p style={{
-          fontSize: '1rem',
-          marginBottom: '25px',
+          fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+          marginBottom: 'clamp(15px, 3vw, 25px)',
           opacity: '0.9',
           lineHeight: '1.5'
         }}>
@@ -110,12 +111,12 @@ function HomePage() {
         </p>
         <Link to="/revopschecklist" style={{
           display: 'inline-block',
-          padding: '14px 32px',
+          padding: 'clamp(10px, 2vw, 14px) clamp(20px, 4vw, 32px)',
           backgroundColor: '#19547b',
           color: 'white',
           textDecoration: 'none',
           borderRadius: '8px',
-          fontSize: '1rem',
+          fontSize: 'clamp(0.85rem, 2vw, 1rem)',
           fontWeight: '600',
           transition: 'all 0.3s ease',
           boxShadow: '0 4px 15px rgba(25, 84, 123, 0.4)',
@@ -137,12 +138,12 @@ function HomePage() {
       {/* Coming Soon Badge */}
       <div style={{
         display: 'inline-block',
-        padding: '12px 30px',
+        padding: 'clamp(8px, 2vw, 12px) clamp(20px, 4vw, 30px)',
         backgroundColor: 'rgba(255,255,255,0.15)',
         borderRadius: '50px',
         backdropFilter: 'blur(10px)',
         border: '1px solid rgba(255,255,255,0.25)',
-        fontSize: '1rem',
+        fontSize: 'clamp(0.8rem, 2vw, 1rem)',
         fontWeight: '500',
         letterSpacing: '1px',
         textTransform: 'uppercase'
@@ -152,12 +153,13 @@ function HomePage() {
       
       {/* Tools Icons */}
       <div style={{
-        marginTop: '50px',
-        fontSize: '30px',
+        marginTop: 'clamp(25px, 5vw, 50px)',
+        fontSize: 'clamp(24px, 5vw, 30px)',
         display: 'flex',
         justifyContent: 'center',
         gap: '20px',
-        opacity: '0.7'
+        opacity: '0.7',
+        paddingBottom: '20px'
       }}>
         <span style={{ animation: 'rotate 3s linear infinite' }}>⚙️</span>
         <span style={{ animation: 'hammer 1s ease-in-out infinite' }}>🔨</span>
@@ -169,23 +171,61 @@ function HomePage() {
 
 function ChecklistPage() {
   return (
-    <div style={{
-      width: '100%',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
-      {/* Header with back button */}
-      <div style={{
+<>
+  <style>
+    {`
+      @media (max-width: 555px) {
+        .r-checklist-button {
+          font-size: 0.8rem !important;
+          padding: 6px 12px !important;
+        }
+        .r-checklist-title {
+          font-size: 1rem !important;
+        }
+        .r-checklist-div {
+          padding: 15px 20px !important;
+        }
+      }
+      @media (max-width: 412px) {
+        .r-checklist-div {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 12px !important;
+        }
+      }
+      
+      @media (max-height: 600px) {
+        .r-checklist-div {
+          padding: 12px 20px !important;
+        }
+      }
+    `}
+  </style>
+
+  <div style={{
+    width: '100%',
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'hidden'
+  }}>
+    {/* Header with back button */}
+    <div 
+      className='r-checklist-div'  
+      style={{
         padding: '20px 30px',
         background: 'rgba(0,0,0,0.3)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid rgba(255,255,255,0.1)',
         display: 'flex',
         alignItems: 'center',
-        gap: '20px'
+        gap: '20px',
+        flexShrink: 0
       }}>
-        <Link to="/" style={{
+      <Link
+        to="/"
+        className="r-checklist-button"
+        style={{
           color: 'white',
           textDecoration: 'none',
           fontSize: '1rem',
@@ -202,31 +242,39 @@ function ChecklistPage() {
         }}
         onMouseLeave={(e) => {
           e.target.style.backgroundColor = 'rgba(255,255,255,0.1)';
-        }}>
-          ← Back to Home
-        </Link>
-        <h1 style={{
+        }}
+      >
+        ← Back to Home
+      </Link>
+
+      <h1
+        className="r-checklist-title"
+        style={{
           color: 'white',
           margin: 0,
           fontSize: '1.5rem',
           fontWeight: '600'
-        }}>
-          Revenue Operations Checklist
-        </h1>
-      </div>
-      
-      {/* Embedded Checklist */}
-      <iframe
-        src="https://revenue-operations-checklist-one.vercel.app/"
-        style={{
-          flex: 1,
-          width: '100%',
-          border: 'none',
-          backgroundColor: 'white'
         }}
-        title="Revenue Operations Checklist"
-      />
+      >
+        Revenue Operations Checklist
+      </h1>
     </div>
+
+    {/* Embedded Checklist - with flex: 1 to fill remaining space */}
+    <iframe
+      src="https://revenue-operations-checklist-one.vercel.app/"
+      style={{
+        flex: 1,
+        width: '100%',
+        border: 'none',
+        backgroundColor: 'white',
+        minHeight: 0
+      }}
+      title="Revenue Operations Checklist"
+    />
+  </div>
+</>
+
   );
 }
 
@@ -275,7 +323,7 @@ function App() {
         height: '100vh',
         background: 'linear-gradient(135deg, #191f38ff 0%, #0f0a14ff 100%)',
         display: 'flex',
-        alignItems: 'center',
+        alignItems: 'stretch',
         justifyContent: 'center',
         fontFamily: "Urbanist",
         boxSizing: 'border-box',
@@ -284,13 +332,15 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div style={{ 
-              padding: '20px',
+              padding: '30px 20px',
               width: '100%',
               height: '100%',
               display: 'flex',
-              alignItems: 'center',
+              alignItems: 'flex-start',
               justifyContent: 'center',
-              overflowY: 'auto'
+              overflowY: 'auto',
+              overflowX: 'hidden',
+              boxSizing: 'border-box'
             }}>
               <HomePage />
             </div>
@@ -344,6 +394,29 @@ function App() {
             50% {
               transform: rotate(10deg);
             }
+          }
+
+          /* Smooth scrolling for all browsers */
+          * {
+            -webkit-overflow-scrolling: touch;
+          }
+
+          /* Ensure scrollbar is always visible on desktop */
+          ::-webkit-scrollbar {
+            width: 8px;
+          }
+
+          ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+          }
+
+          ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+          }
+
+          ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
           }
         `}</style>
       </div>
