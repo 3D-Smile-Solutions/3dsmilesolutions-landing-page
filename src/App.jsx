@@ -165,6 +165,12 @@ function HomePage() {
         <span style={{ animation: 'hammer 1s ease-in-out infinite' }}>🔨</span>
         <span style={{ animation: 'rotate 3s linear infinite reverse' }}>⚙️</span>
       </div>
+      
+      {/* Empty spacer div */}
+      <div style={{
+        width: '100%',
+        height: '20px'
+      }}></div>
     </div>
   );
 }
