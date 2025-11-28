@@ -169,7 +169,7 @@ function HomePage() {
       {/* Empty spacer div */}
       <div style={{
         width: '100%',
-        height: '20px'
+        height: '50px'
       }}></div>
     </div>
   );
@@ -305,6 +305,13 @@ function ChecklistPage() {
         title="Revenue Operations Checklist"
       />
     </div>
+
+    {/* Empty spacer div */}
+    <div style={{
+      width: '100%',
+      height: '50px',
+      backgroundColor: 'white'
+    }}></div>
   </div>
 </>
 
