@@ -176,27 +176,36 @@ function ChecklistPage() {
     {`
       @media (max-width: 555px) {
         .r-checklist-button {
-          font-size: 0.8rem !important;
-          padding: 6px 12px !important;
+          font-size: 0.75rem !important;
+          padding: 6px 10px !important;
+          white-space: nowrap !important;
+          flex-shrink: 0 !important;
         }
         .r-checklist-title {
-          font-size: 1rem !important;
+          font-size: 0.9rem !important;
         }
         .r-checklist-div {
-          padding: 15px 20px !important;
+          padding: 12px 15px !important;
+          gap: 10px !important;
         }
       }
-      @media (max-width: 412px) {
+      
+      @media (max-width: 400px) {
+        .r-checklist-button {
+          font-size: 0.7rem !important;
+          padding: 6px 8px !important;
+        }
+        .r-checklist-title {
+          font-size: 0.85rem !important;
+        }
         .r-checklist-div {
-          flex-direction: column !important;
-          align-items: flex-start !important;
-          gap: 12px !important;
+          gap: 8px !important;
         }
       }
       
       @media (max-height: 600px) {
         .r-checklist-div {
-          padding: 12px 20px !important;
+          padding: 10px 20px !important;
         }
       }
     `}
@@ -219,8 +228,10 @@ function ChecklistPage() {
         borderBottom: '1px solid rgba(255,255,255,0.1)',
         display: 'flex',
         alignItems: 'center',
-        gap: '20px',
-        flexShrink: 0
+        justifyContent: 'space-between',
+        gap: '15px',
+        flexShrink: 0,
+        flexWrap: 'nowrap'
       }}>
       <Link
         to="/"
@@ -235,7 +246,9 @@ function ChecklistPage() {
           padding: '8px 16px',
           backgroundColor: 'rgba(255,255,255,0.1)',
           borderRadius: '8px',
-          transition: 'all 0.3s ease'
+          transition: 'all 0.3s ease',
+          whiteSpace: 'nowrap',
+          flexShrink: 0
         }}
         onMouseEnter={(e) => {
           e.target.style.backgroundColor = 'rgba(255,255,255,0.2)';
@@ -253,25 +266,39 @@ function ChecklistPage() {
           color: 'white',
           margin: 0,
           fontSize: '1.5rem',
-          fontWeight: '600'
+          fontWeight: '600',
+          textAlign: 'right',
+          flexGrow: 1,
+          minWidth: 0
         }}
       >
         Revenue Operations Checklist
       </h1>
     </div>
 
-    {/* Embedded Checklist - with flex: 1 to fill remaining space */}
-    <iframe
-      src="https://revenue-operations-checklist-one.vercel.app/"
-      style={{
-        flex: 1,
-        width: '100%',
-        border: 'none',
-        backgroundColor: 'white',
-        minHeight: 0
-      }}
-      title="Revenue Operations Checklist"
-    />
+    {/* Embedded Checklist - with flex: 1 to fill remaining space and bottom padding */}
+    <div style={{
+      flex: 1,
+      width: '100%',
+      minHeight: 0,
+      paddingBottom: '20px',
+      backgroundColor: 'white',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      <iframe
+        src="https://revenue-operations-checklist-one.vercel.app/"
+        style={{
+          flex: 1,
+          width: '100%',
+          border: 'none',
+          backgroundColor: 'white',
+          minHeight: 0
+        }}
+        title="Revenue Operations Checklist"
+      />
+    </div>
   </div>
 </>
 
